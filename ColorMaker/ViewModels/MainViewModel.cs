@@ -11,17 +11,20 @@ namespace ColorMaker.ViewModels
 
             if (e.PropertyName.CompareTo(nameof(RedValue)) == 0)
             {
-
+                setColor();
             }
             else if (e.PropertyName.CompareTo(nameof(GreenValue)) == 0)
             {
-
+                setColor();
             }
             else if (e.PropertyName.CompareTo(nameof(BlueValue)) == 0)
             {
-
+                setColor();
             }
         }
+
+        [ObservableProperty]
+        Color color = new Color(255, 255, 255, 255);
 
         [ObservableProperty]
         Brush background;
@@ -29,14 +32,22 @@ namespace ColorMaker.ViewModels
         [ObservableProperty]
         double minimumValue = 0;
         [ObservableProperty]
-        double maximumValue = 255;
+        double maximumValue = 1;
         [ObservableProperty]
-        double redValue;
+        double redValue = 1;
         [ObservableProperty]
-        double greenValue;
+        double greenValue = 1;
         [ObservableProperty]
-        double blueValue;
+        double blueValue = 1;
 
 
+        private void setColor()
+        {
+
+            Color = Color.FromRgb(RedValue, GreenValue, BlueValue);
+            Background = new SolidColorBrush(Color);
+        }
+
+        
     }
 }
