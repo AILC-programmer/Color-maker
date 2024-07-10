@@ -5,11 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ColorMaker"
     Shell.FlyoutBehavior="Disabled"
-    Title="ColorMaker">
+    xmlns:pages="clr-namespace:ColorMaker.Pages"
+    Title="Color maker">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
 
 </Shell>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorMaker.Pages.MainPage"
+             xmlns:conveter="clr-namespace:ColorMaker.Converter"
+             xmlns:viewmodel="clr-namespace:ColorMaker.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.NavBarHasShadow="False"
+             Title="MainPage">
+
+    <ContentPage.Background>
+        <SolidColorBrush Color="{Binding Background}"/>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <conveter:Double2String x:Key="D2S"/>
+    </ContentPage.Resources>
+    
+    <Frame Margin="10,0,10,0"
+           BackgroundColor="#FFFFFFFF"
+           VerticalOptions="Center"
+           BorderColor="#FF000000">
+        <VerticalStackLayout Spacing="15">
+            <Label Text="AILC"
+                   FontSize="Title"
+                   HorizontalOptions="Center"/>
+            <Label Text="Color maker"
+                   FontSize="Header"
+                   HorizontalOptions="Center"/>
+            <Label Text="Red"/>
+            <Grid ColumnDefinitions="*, 40">
+                <Slider ThumbColor="#FFFF0000"
+                        MinimumTrackColor="#FFFF0000"
+                        Background="#00FFFFFF"
+                        Minimum="{Binding MinimumValue}"
+                        Maximum="{Binding MaximumValue}"
+                        Value="{Binding RedValue}"/>
+                <Label Text="{Binding RedValue, Converter={StaticResource D2S}, Mode=OneWay}"
+                       Grid.Column="1"/>
+            </Grid>
+            
+
+            <Label Text="Green"/>
+            <Grid ColumnDefinitions="*, 40">
+                <Slider ThumbColor="#FF00FF00"
+                        MinimumTrackColor="#FF00FF00"
+                        Background="#00FFFFFF"
+                        Minimum="{Binding MinimumValue}"
+                        Maximum="{Binding MaximumValue}"
+                        Value="{Binding GreenValue}"/>
+                <Label Text="{Binding GreenValue, Converter={StaticResource D2S}, Mode=OneWay}"
+                       Grid.Column="1"/>
+            </Grid>
+            
+            <Label Text="Blue"/>
+            <Grid ColumnDefinitions="*, 40">
+                <Slider ThumbColor="#FF0000FF"
+                        MinimumTrackColor="#FF0000FF"
+                        Background="#00FFFFFF"
+                        Minimum="{Binding MinimumValue}"
+                        Maximum="{Binding MaximumValue}"
+                        Value="{Binding BlueValue}"/>
+                <Label Text="{Binding BlueValue, Converter={StaticResource D2S}, Mode=OneWay}"
+                       Grid.Column="1"/>
+            </Grid>
+
+            <Frame BackgroundColor="#FFFFFFFF"
+                   CornerRadius="35"
+                   BorderColor="#FF000000"
+                   HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="#FFFFFF"
+                           VerticalOptions="Center"/>
+                    <ImageButton Source="bx_copy.png"
+                                 WidthRequest="35"
+                                 HeightRequest="35"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>
