@@ -16,65 +16,74 @@
     <Grid Background="{Binding Background}">
 
         <Frame Margin="10,0,10,0"
-           BackgroundColor="#FFFFFFFF"
-           VerticalOptions="Center"
-           BorderColor="#FF000000">
+               BackgroundColor="#FFFFFFFF"
+               VerticalOptions="Center"
+               BorderColor="#FF000000">
             <VerticalStackLayout Spacing="15">
                 <Label Text="AILC"
-                   FontSize="Title"
-                   HorizontalOptions="Center"/>
+                       FontSize="Title"
+                       HorizontalOptions="Center"/>
                 <Label Text="Color maker"
-                   FontSize="Header"
-                   HorizontalOptions="Center"/>
-                <Label Text="Red"/>
+                       FontSize="Header"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Red"/>
                 <Grid ColumnDefinitions="*, 40">
                     <Slider ThumbColor="#FFFF0000"
-                        MinimumTrackColor="#FFFF0000"
-                        Background="#00FFFFFF"
-                        Minimum="{Binding MinimumValue}"
-                        Maximum="{Binding MaximumValue}"
-                        Value="{Binding RedValue}"/>
+                            MinimumTrackColor="#FFFF0000"
+                            Background="#00FFFFFF"
+                            Minimum="{Binding MinimumValue}"
+                            Maximum="{Binding MaximumValue}"
+                            Value="{Binding RedValue}"/>
                     <Label Text="{Binding RedValue, Converter={StaticResource D2S}, Mode=OneWay}"
-                       Grid.Column="1"/>
+                           Grid.Column="1"/>
                 </Grid>
 
 
                 <Label Text="Green"/>
                 <Grid ColumnDefinitions="*, 40">
                     <Slider ThumbColor="#FF00FF00"
-                        MinimumTrackColor="#FF00FF00"
-                        Background="#00FFFFFF"
-                        Minimum="{Binding MinimumValue}"
-                        Maximum="{Binding MaximumValue}"
-                        Value="{Binding GreenValue}"/>
+                            MinimumTrackColor="#FF00FF00"
+                            Background="#00FFFFFF"
+                            Minimum="{Binding MinimumValue}"
+                            Maximum="{Binding MaximumValue}"
+                            Value="{Binding GreenValue}"/>
                     <Label Text="{Binding GreenValue, Converter={StaticResource D2S}, Mode=OneWay}"
-                       Grid.Column="1"/>
+                           Grid.Column="1"/>
                 </Grid>
 
                 <Label Text="Blue"/>
                 <Grid ColumnDefinitions="*, 40">
                     <Slider ThumbColor="#FF0000FF"
-                        MinimumTrackColor="#FF0000FF"
-                        Background="#00FFFFFF"
-                        Minimum="{Binding MinimumValue}"
-                        Maximum="{Binding MaximumValue}"
-                        Value="{Binding BlueValue}"/>
+                            MinimumTrackColor="#FF0000FF"
+                            Background="#00FFFFFF"
+                            Minimum="{Binding MinimumValue}"
+                            Maximum="{Binding MaximumValue}"
+                            Value="{Binding BlueValue}"/>
                     <Label Text="{Binding BlueValue, Converter={StaticResource D2S}, Mode=OneWay}"
-                       Grid.Column="1"/>
+                           Grid.Column="1"/>
                 </Grid>
 
                 <Frame BackgroundColor="#FFFFFFFF"
-                   CornerRadius="35"
-                   BorderColor="#FF000000"
-                   HorizontalOptions="Center">
+                       CornerRadius="35"
+                       BorderColor="#FF000000"
+                       HorizontalOptions="Center">
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="{Binding Color, Converter={StaticResource C2H2S}, Mode=OneWay}"
-                           VerticalOptions="Center"/>
+                            VerticalOptions="Center"/>
                         <ImageButton Source="bx_copy.png"
-                                 WidthRequest="35"
-                                 HeightRequest="35"/>
+                                     WidthRequest="35"
+                                     HeightRequest="35"
+                                     Command="{Binding CopyHexCodeCommand}"/>
                     </HorizontalStackLayout>
                 </Frame>
+
+                <Button Text="Random color"
+                        Command="{Binding GetRandomeColorCommand}"
+                        Background="#FFFFFFFF"
+                        BorderColor="#FF000000"
+                        BorderWidth="3"
+                        CornerRadius="25"
+                        TextColor="#FF000000"/>
             </VerticalStackLayout>
         </Frame>
     </Grid>
